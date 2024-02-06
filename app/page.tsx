@@ -150,14 +150,14 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen min-w-60 flex-col items-center justify-between p-24">
       <div className=" grid grid-cols-3 gap-2 border shadow-xl p-2">
         {lists.map((list, i) => (
           <div
             key={i}
             onClick={() => handleSquare(i)}
             className={clsx(
-              "w-20 h-20 cursor-pointer rounded-lg border font-bold bg-muted flex justify-center items-center",
+              "w-10 h-10 md:w-20 md:h-20 cursor-pointer rounded-lg border font-bold bg-muted flex justify-center items-center",
               list.title === "X" ? " text-red-500" : " text-green-500"
             )}
           >
@@ -165,7 +165,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className=" flex justify-between items-center w-full p-4 ">
+      <div className=" flex justify-center md:justify-between items-center w-full p-4 ">
         <h1>Player1 :{countP1}</h1>
         <h1>Player2 :{countP2}</h1>
       </div>
