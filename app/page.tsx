@@ -150,7 +150,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen min-w-60 flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen min-w-60 flex-col items-center md:justify-between p-24">
       <div className=" grid grid-cols-3 gap-2 border shadow-xl p-2">
         {lists.map((list, i) => (
           <div
@@ -165,7 +165,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className=" flex justify-center md:justify-between items-center w-full p-4 ">
+      <div className=" flex flex-col md:flex-row justify-center md:justify-between items-center w-full p-4 ">
         <h1>Player1 :{countP1}</h1>
         <h1>Player2 :{countP2}</h1>
       </div>
