@@ -154,15 +154,15 @@ export default function Home() {
   };
 
   return (
-    <main className=" border flex min-h-screen  flex-col items-center md:justify-between p-24">
+    <main className="  w-full  flex md:min-h-screen  flex-col items-center md:justify-between py-8">
       {winner && <Confetti />}
-      <div className=" min-w-32 grid grid-cols-3 gap-2 border shadow-xl p-2">
+      <div className=" w-[280px] grid grid-cols-3 gap-2 border shadow-xl p-4">
         {lists.map((list, i) => (
           <div
             key={i}
             onClick={() => handleSquare(i)}
             className={clsx(
-              "w-10 h-10 md:w-20 md:h-20 text-3xl cursor-pointer rounded-lg border font-bold bg-muted flex justify-center items-center",
+              "w-20 h-20 text-3xl cursor-pointer rounded-lg border font-bold bg-muted flex justify-center items-center",
               list.title === "X" ? " text-red-500" : " text-green-500"
             )}
           >
@@ -170,7 +170,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className=" flex flex-col md:flex-row justify-center md:justify-between items-center w-full p-4 ">
+      <div className=" flex flex-col  justify-center   items-center w-full p-4 ">
         <h1 className={player === "Player1" ? "text-red-500" : "text-black"}>
           Player1 :{" "}
           <span className="font-bold text-muted-foreground">{countP1}</span>
