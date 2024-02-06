@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { toast } from "sonner";
+import Confetti from "react-confetti";
 
 type ListType = {
   ichecked: boolean;
@@ -65,6 +66,7 @@ export default function Home() {
   const [countP1, setCountP1] = useState(0);
   const [countP2, setCountP2] = useState(0);
   const [board, setBoard] = useState(Array(9).fill(null));
+  const [winner, setWinner] = useState(false);
 
   const handleSquare = (i: number) => {
     if (!lists[i].ichecked) {
@@ -100,18 +102,20 @@ export default function Home() {
     const win = calculateWinner(newBoard);
 
     if (win === "O") {
+      setWinner(true);
       toast.success("Player 2 wins!");
       //alert("Player 2 wins!");
       setTimeout(function () {
         window.location.reload();
-      }, 2000);
+      }, 4000);
     }
     if (win === "X") {
+      setWinner(true);
       toast.success("Player 1 wins!");
       //alert("Player 1 wins!");
       setTimeout(function () {
         window.location.reload();
-      }, 2000);
+      }, 4000);
     }
 
     if (!win && countP1 + countP2 >= 8) {
@@ -151,6 +155,7 @@ export default function Home() {
 
   return (
     <main className=" border flex min-h-screen  flex-col items-center md:justify-between p-24">
+      {winner && <Confetti />}
       <div className=" min-w-32 grid grid-cols-3 gap-2 border shadow-xl p-2">
         {lists.map((list, i) => (
           <div
@@ -167,10 +172,12 @@ export default function Home() {
       </div>
       <div className=" flex flex-col md:flex-row justify-center md:justify-between items-center w-full p-4 ">
         <h1 className={player === "Player1" ? "text-red-500" : "text-black"}>
-          Player1 :{countP1}
+          Player1 :{" "}
+          <span className="font-bold text-muted-foreground">{countP1}</span>
         </h1>
         <h1 className={player === "Player2" ? "text-green-500" : "text-black"}>
-          Player2 :{countP2}
+          Player2 :{" "}
+          <span className=" font-bold text-muted-foreground">{countP2}</span>
         </h1>
       </div>
     </main>
