@@ -113,6 +113,14 @@ export default function Home() {
         window.location.reload();
       }, 2000);
     }
+
+    if (!win && countP1 + countP2 >= 8) {
+      toast.info("No One wins!");
+      //alert("Player 1 wins!");
+      setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+    }
   };
 
   const newBoard = [...board];
