@@ -166,8 +166,12 @@ export default function Home() {
         ))}
       </div>
       <div className=" flex flex-col md:flex-row justify-center md:justify-between items-center w-full p-4 ">
-        <h1>Player1 :{countP1}</h1>
-        <h1>Player2 :{countP2}</h1>
+        <h1 className={player === "Player1" ? "text-red-500" : "text-black"}>
+          Player1 :{countP1}
+        </h1>
+        <h1 className={player === "Player2" ? "text-green-500" : "text-black"}>
+          Player2 :{countP2}
+        </h1>
       </div>
     </main>
   );
